@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block title %}Edit your profile here{% endblock %}
+
+{% block content %}
+
+  <form action="", method="post">
+    {% csrf_token %}
+
+    {% for message in messages %}
+      <p style="color: red;">{{message}}</p>
+    {% endfor %}
+
+    <h3>Click done after editing</h3>
+
+    <p>Username: <input type="text", name="edit_username", value="{{user.username}}"></p>
+
+    <p>First Name: <input type="text", name="edit_firstname", value="{{user.first_name}}"></p>
+
+    <p>Last Name: <input type="text", name="edit_lastname", value="{{user.last_name}}"></p>
+
+    <p>Email: <input type="email", name="edit_email", value="{{user.email}}"></p>
+
+    {% for user in user_info %}
+      <p>Phone Number: <input type="text", value="{{user.phone_number}}", name="edit_phone"></p>
+    {% endfor %}
+
+
+    <input type="submit", value="Done">
+  </form>
+
+  <p>
+    <form action="change_password", method="post">
+      {% csrf_token %}
+
+      <input type="submit", value="Change password">
+    </form>
+  </p>
+{% endblock %}

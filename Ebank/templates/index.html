@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Select an option{% endblock %}</title>
+</head>
+<body align="center">
+
+<h1>My Online Bank App</h1>
+
+<hr>
+<table cellpadding="10", align="center">
+    <tr>
+        {% if user.is_anonymous %}
+        <td><a href="/logging_in">Login</a></td>
+        {% endif %}
+        <td><a href="/homepage">Homepage</a></td>
+        <td><a href="/transaction">Transaction</a></td>
+        <td><a href="/profile">Profile</a></td>
+
+        {% if user.is_authenticated %}
+        <td><a href="/logging_out">Logout</a></td>
+        {% endif %}
+    </tr>
+</table>
+<hr>
+
+{% block content %}
+
+    <table align="center">
+        <tr>
+            <td><a href="/logging_in">LOGIN</a></td>
+            <td><a href="/register">SIGN UP</a></td>
+        </tr>
+    </table>
+
+{% endblock %}
+</body>
+</html>

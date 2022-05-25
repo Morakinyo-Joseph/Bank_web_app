@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block title %}Create an account with us{% endblock %}
+
+{% block content %}
+<h2 style="text-decoration: underline;">Create an Account</h2>
+
+
+
+<form action="", method="post">
+    {% csrf_token %}
+
+    {% for message in messages %}
+        <p style="color: red;">{{message}}</p>
+    {% endfor %}
+
+    <p>Username: </p>
+    <input type="text", name="username">
+
+    <p>First Name: </p>
+    <input type="text", name="firstname">
+
+    <p>Last Name: </p>
+    <input type="text", name="lastname">
+
+    <p>Email: </p>
+    <input type="email", name="email">
+
+    <p>Password: </p>
+    <input type="password", name="password1">
+
+    <p>Confirm Password: </p>
+    <input type="password", name="password2">
+
+    <br>
+    <p>Already have an account? click <a href="/logging_in">here</a></p>
+    <hr width="20%">
+    <input type="submit", value="Create">
+
+</form>
+
+{% endblock %}
+

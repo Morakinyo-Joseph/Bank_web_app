@@ -1,0 +1,32 @@
+
+{% extends 'index.html' %}
+
+{% block title %}View your profile{% endblock %}
+
+
+{% block content %}
+
+<h3><p style="text-decoration: underline;">User Details</p></h3>
+
+<p>Username: {{user.username}}</p>
+<p>Firstname: {{user.first_name}}</p>
+<p>Lastname: {{user.last_name}}</p>
+<p>Email Address: {{user.email}}</p>
+
+
+<h3><p style="text-decoration: underline;">Bank Details</p></h3>
+
+{% for user in user_info %}
+    <p>Account Number: {{ user.account_number }}</p>
+    <p>Phone: {{ user.phone_number }}</p>
+    <p>Date Created: {{ user.date_created }}</p>
+{% endfor %}
+
+
+<form action="edit", method="post">
+    {% csrf_token %}
+
+    <p><input type="submit", value="Edit Profile"></p>
+</form>
+
+{% endblock %}

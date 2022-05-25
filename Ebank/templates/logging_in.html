@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% block title %}Login in your details{% endblock %}
+
+{% block content %}
+    <h2 style="text-decoration: underline;">Sign in</h2>
+
+    <form action="", method="post">
+        {% csrf_token %}
+
+        {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+
+
+        <p>Username: </p>
+        <input type="text", name="username">
+
+        <p>Password: </p>
+        <input type="password", name="password">
+
+        <br>
+        <p>To open an account click <a href="/register">here</a></p>
+        <hr width="20%">
+        <input type="submit">
+
+    </form>
+
+{% endblock %}
